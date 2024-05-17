@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://example.com/soapproject"
+           targetNamespace="http://example.com/soapproject"
+           elementFormDefault="qualified">
+
+    <xs:complexType name="clientInfo">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="telephone" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getClientByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getClientByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="client" type="tns:clientInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createClientRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="client" type="tns:clientInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createClientResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="client" type="tns:clientInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateClientRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="client" type="tns:clientInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateClientResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="client" type="tns:clientInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteClientRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteClientResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="responseStatus" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
