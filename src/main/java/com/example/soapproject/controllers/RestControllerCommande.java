@@ -1,4 +1,4 @@
-package com.example.soapproject.controllers;
+package com.example.soapproject.controller;
 
 import com.example.soapproject.models.Commande;
 import com.example.soapproject.service.CommandeService;
@@ -31,8 +31,14 @@ public class RestControllerCommande {
     }
 
     @PostMapping
-    public Commande createCommande(@RequestBody Commande commande) {
-        return commandeService.createCommande(commande);
+    public ResponseEntity<Commande> createCommande(@RequestBody Commande commande) {
+        try {
+            Commande createdCommande = commandeService.createCommande(commande);
+            return ResponseEntity.ok(createdCommande);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).build();
+        }
     }
 
     @PutMapping("/{id}")
